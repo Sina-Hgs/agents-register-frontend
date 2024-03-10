@@ -15,10 +15,12 @@ const CodeValidation = () => {
           prevState,
           <input
             name="code"
-            type="number"
+            // putting the as text instead of number so that the maxLength works on chrome
+            type="text"
             min={0}
             max={9}
             maxLength={1}
+            pattern="[0-9]"
             required
             key={i}
             className="border-2 rounded-lg border-gray-300 py-2 px-2 w-12 h-12 mb-5 text-center appearance-none"
