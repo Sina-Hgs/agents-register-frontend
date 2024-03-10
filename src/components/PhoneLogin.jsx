@@ -1,15 +1,18 @@
 import { useRef, useState } from "react";
 import { create_otp } from "../api/axios";
+import { useNavigate } from "react-router-dom";
 
 const PhoneLogin = () => {
   const phoneRef = useRef("");
   const [errorText, setErrorText] = useState("No error");
   const [showError, setShowError] = useState("invisible");
+  const Navigate = useNavigate();
 
   const handleClick = async () => {
     try {
       const res = await create_otp(phoneRef.current);
       console.log("hey there", res);
+      Navigate("./validation");
     } catch (error) {
       console.log(error.response.data.error_details.fa_details);
       setErrorText(error.response.data.error_details.fa_details);
@@ -50,7 +53,7 @@ const PhoneLogin = () => {
       <button
         type="button"
         onClick={() => handleClick()}
-        className="bg-teal-600 text-white w-[80%] mb-5 py-2 rounded-lg hover:bg-teal-700 focus:bg-teal-700"
+        className="bg-teal-600 text-white w-[80%] mb-2 py-2 rounded-lg hover:bg-teal-700 focus:bg-teal-700"
       >
         ادامه
       </button>
