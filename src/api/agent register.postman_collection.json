@@ -1,0 +1,838 @@
+{
+  "info": {
+    "_postman_id": "0a85bd9a-0a39-48c9-ab33-8912d0d403d4",
+    "name": "agent signin",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "17866727"
+  },
+  "item": [
+    {
+      "name": "create otp",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"phone_number\": \"09000000009\"\n }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://stage-api.sanaap.co/api/v2/app/DEY/agent/verification/signup/create_otp/",
+          "protocol": "https",
+          "host": ["stage-api", "sanaap", "co"],
+          "path": [
+            "api",
+            "v2",
+            "app",
+            "DEY",
+            "agent",
+            "verification",
+            "signup",
+            "create_otp",
+            ""
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "create otp",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"phone_number\": \"09000000009\"\n }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://stage-api.sanaap.co/api/v2/app/DEY/agent/verification/signup/create_otp/",
+              "protocol": "https",
+              "host": ["stage-api", "sanaap", "co"],
+              "path": [
+                "api",
+                "v2",
+                "app",
+                "DEY",
+                "agent",
+                "verification",
+                "signup",
+                "create_otp",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Date",
+              "value": "Mon, 12 Feb 2024 09:09:24 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=65"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "key": "Vary",
+              "value": "Origin, Cookie"
+            },
+            {
+              "key": "Allow",
+              "value": "POST, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "SAMEORIGIN"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "1; mode=block"
+            },
+            {
+              "key": "Server",
+              "value": "ArvanCloud"
+            },
+            {
+              "key": "Server-Timing",
+              "value": "total;dur=72"
+            },
+            {
+              "key": "X-Request-ID",
+              "value": "409094c4298e2195e81b1f9986997c37"
+            },
+            {
+              "key": "X-SID",
+              "value": "2022"
+            },
+            {
+              "key": "Content-Encoding",
+              "value": "br"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"status_code\": 200,\n    \"message\": \"Request fulfilled, document follows\",\n    \"is_success\": true,\n    \"error_details\": null,\n    \"response\": \"OK\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "validate otp",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"phone_number\": \"09000000009\",\n\t\"code\":\"55555\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://stage-api.sanaap.co/api/v2/app/DEY/agent/verification/signup/validate_otp/",
+          "protocol": "https",
+          "host": ["stage-api", "sanaap", "co"],
+          "path": [
+            "api",
+            "v2",
+            "app",
+            "DEY",
+            "agent",
+            "verification",
+            "signup",
+            "validate_otp",
+            ""
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "validate otp",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"phone_number\": \"09000000009\",\n\t\"code\":\"55555\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://stage-api.sanaap.co/api/v2/app/DEY/agent/verification/signup/validate_otp/",
+              "protocol": "https",
+              "host": ["stage-api", "sanaap", "co"],
+              "path": [
+                "api",
+                "v2",
+                "app",
+                "DEY",
+                "agent",
+                "verification",
+                "signup",
+                "validate_otp",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Date",
+              "value": "Mon, 12 Feb 2024 09:10:11 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=65"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "key": "Vary",
+              "value": "Origin, Cookie"
+            },
+            {
+              "key": "Allow",
+              "value": "POST, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "SAMEORIGIN"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "1; mode=block"
+            },
+            {
+              "key": "Server",
+              "value": "ArvanCloud"
+            },
+            {
+              "key": "Server-Timing",
+              "value": "total;dur=12"
+            },
+            {
+              "key": "X-Request-ID",
+              "value": "8d45e0d848a51e46a54594bcf02f919f"
+            },
+            {
+              "key": "X-SID",
+              "value": "2022"
+            },
+            {
+              "key": "Content-Encoding",
+              "value": "br"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"status_code\": 200,\n    \"message\": \"Request fulfilled, document follows\",\n    \"is_success\": true,\n    \"error_details\": null,\n    \"response\": \"OK\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "agent code validate",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"agent_code\": \"1223\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://stage-api.sanaap.co/api/v2/app/DEY/agent/verification/signup/check_agency_code/",
+          "protocol": "https",
+          "host": ["stage-api", "sanaap", "co"],
+          "path": [
+            "api",
+            "v2",
+            "app",
+            "DEY",
+            "agent",
+            "verification",
+            "signup",
+            "check_agency_code",
+            ""
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "agent code not valid",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"agent_code\": \"123\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://stage-api.sanaap.co/api/v2/app/DEY/agent/verification/signup/check_agency_code/",
+              "protocol": "https",
+              "host": ["stage-api", "sanaap", "co"],
+              "path": [
+                "api",
+                "v2",
+                "app",
+                "DEY",
+                "agent",
+                "verification",
+                "signup",
+                "check_agency_code",
+                ""
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Date",
+              "value": "Mon, 12 Feb 2024 09:12:19 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "310"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=65"
+            },
+            {
+              "key": "Allow",
+              "value": "POST, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "SAMEORIGIN"
+            },
+            {
+              "key": "Vary",
+              "value": "Origin, Cookie"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Server",
+              "value": "ArvanCloud"
+            },
+            {
+              "key": "Server-Timing",
+              "value": "total;dur=65"
+            },
+            {
+              "key": "X-Request-ID",
+              "value": "68fe091fb258261d58c7d867dd12ff54"
+            },
+            {
+              "key": "X-SID",
+              "value": "2022"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"status_code\": 400,\n    \"message\": \"Bad request syntax or unsupported method\",\n    \"is_success\": false,\n    \"error_details\": {\n        \"type\": \"validation_error\",\n        \"code\": \"agent_code_unique\",\n        \"detail\": \"This agent code is registered before\",\n        \"attr\": \"123\",\n        \"fa_details\": \"کد نمایندگی 123 قبلا ثبت شده است\"\n    },\n    \"response\": null\n}"
+        },
+        {
+          "name": "agent code valid",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"agent_code\": \"1223\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://stage-api.sanaap.co/api/v2/app/DEY/agent/verification/signup/check_agency_code/",
+              "protocol": "https",
+              "host": ["stage-api", "sanaap", "co"],
+              "path": [
+                "api",
+                "v2",
+                "app",
+                "DEY",
+                "agent",
+                "verification",
+                "signup",
+                "check_agency_code",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Date",
+              "value": "Mon, 12 Feb 2024 09:12:34 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=65"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "key": "Vary",
+              "value": "Origin, Cookie"
+            },
+            {
+              "key": "Allow",
+              "value": "POST, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "SAMEORIGIN"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "1; mode=block"
+            },
+            {
+              "key": "Server",
+              "value": "ArvanCloud"
+            },
+            {
+              "key": "Server-Timing",
+              "value": "total;dur=38"
+            },
+            {
+              "key": "X-Request-ID",
+              "value": "17fd6d382e4f2b2c0ae9d6ac6bdaadc3"
+            },
+            {
+              "key": "X-SID",
+              "value": "2022"
+            },
+            {
+              "key": "Content-Encoding",
+              "value": "br"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"status_code\": 200,\n    \"message\": \"Request fulfilled, document follows\",\n    \"is_success\": true,\n    \"error_details\": null,\n    \"response\": \"OK\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "province list",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://stage-api.sanaap.co/base/provinces_wop/",
+          "protocol": "https",
+          "host": ["stage-api", "sanaap", "co"],
+          "path": ["base", "provinces_wop", ""]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "county list",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "insurance branch list",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://stage-api.sanaap.co/api/v2/app/selection_item/insurance_branch/wop_list/",
+          "protocol": "https",
+          "host": ["stage-api", "sanaap", "co"],
+          "path": [
+            "api",
+            "v2",
+            "app",
+            "selection_item",
+            "insurance_branch",
+            "wop_list",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "register agent",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"address\": \"2314\",\n    \"agency_type\": \"legal\",\n    \"agent_code\": \"324\",\n    \"city_code\": \"123\",\n    \"county\": \"1244\",\n    \"first_name\": \"محمد\",\n    \"insurance_branch\": \"81\",\n    \"last_name\": \"محمدی\",\n    \"name\": \"13\",\n    \"phone\": \"12312312\",\n    \"phone_number\": \"09000000003\",\n    \"province\": \"8\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://stage-api.sanaap.co/api/v2/app/DEY/agent/verification/signup/",
+          "protocol": "https",
+          "host": ["stage-api", "sanaap", "co"],
+          "path": [
+            "api",
+            "v2",
+            "app",
+            "DEY",
+            "agent",
+            "verification",
+            "signup",
+            ""
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "register agent",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"address\": \"2314\",\n    \"agency_type\": \"legal\",\n    \"agent_code\": \"324\",\n    \"city_code\": \"123\",\n    \"county\": \"1244\",\n    \"first_name\": \"محمد\",\n    \"insurance_branch\": \"81\",\n    \"last_name\": \"محمدی\",\n    \"name\": \"13\",\n    \"phone\": \"12312312\",\n    \"phone_number\": \"09000000003\",\n    \"province\": \"8\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://stage-api.sanaap.co/api/v2/app/DEY/agent/verification/signup/",
+              "protocol": "https",
+              "host": ["stage-api", "sanaap", "co"],
+              "path": [
+                "api",
+                "v2",
+                "app",
+                "DEY",
+                "agent",
+                "verification",
+                "signup",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Date",
+              "value": "Mon, 12 Feb 2024 09:31:47 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=65"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "key": "Vary",
+              "value": "Origin, Cookie"
+            },
+            {
+              "key": "Allow",
+              "value": "POST, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "SAMEORIGIN"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "1; mode=block"
+            },
+            {
+              "key": "Server",
+              "value": "ArvanCloud"
+            },
+            {
+              "key": "Server-Timing",
+              "value": "total;dur=316"
+            },
+            {
+              "key": "X-Request-ID",
+              "value": "0d711148b3662a7d546cd7a62ab18082"
+            },
+            {
+              "key": "X-SID",
+              "value": "2022"
+            },
+            {
+              "key": "Content-Encoding",
+              "value": "br"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"status_code\": 200,\n    \"message\": \"Request fulfilled, document follows\",\n    \"is_success\": true,\n    \"error_details\": null,\n    \"response\": {\n        \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcwOTAyNjMwNywianRpIjoiYTY4Zjk4MWFlZTAyNGRjNmFkYmE4OTc2ZGIzNGJhYjAiLCJ1c2VyX2lkIjo0MTQ5fQ.yszFsMgkkCYGgnydm9Z4_onYTN9kt2yjEiCrBPqykek\",\n        \"access\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA4NTk0MzA3LCJqdGkiOiJkNjRjZjUxYjcwMDg0ZmE5YjAyYzU5YjM4N2VmNjMzZiIsInVzZXJfaWQiOjQxNDl9.yzQdzJDHM6-MnXOjdzQMqBxiFGuMCemDz-vNUe4kKSE\"\n    }\n}"
+        }
+      ]
+    },
+    {
+      "name": "status",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA4NTk0MzA3LCJqdGkiOiJkNjRjZjUxYjcwMDg0ZmE5YjAyYzU5YjM4N2VmNjMzZiIsInVzZXJfaWQiOjQxNDl9.yzQdzJDHM6-MnXOjdzQMqBxiFGuMCemDz-vNUe4kKSE",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://stage-api.sanaap.co/api/v2/app/DEY/agent/app_user_status/",
+          "protocol": "https",
+          "host": ["stage-api", "sanaap", "co"],
+          "path": ["api", "v2", "app", "DEY", "agent", "app_user_status", ""]
+        }
+      },
+      "response": [
+        {
+          "name": "status",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA4NTk0MzA3LCJqdGkiOiJkNjRjZjUxYjcwMDg0ZmE5YjAyYzU5YjM4N2VmNjMzZiIsInVzZXJfaWQiOjQxNDl9.yzQdzJDHM6-MnXOjdzQMqBxiFGuMCemDz-vNUe4kKSE",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://stage-api.sanaap.co/api/v2/app/DEY/agent/app_user_status/",
+              "protocol": "https",
+              "host": ["stage-api", "sanaap", "co"],
+              "path": [
+                "api",
+                "v2",
+                "app",
+                "DEY",
+                "agent",
+                "app_user_status",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Date",
+              "value": "Mon, 12 Feb 2024 09:32:24 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=65"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "key": "Vary",
+              "value": "Origin, Cookie"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "SAMEORIGIN"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "1; mode=block"
+            },
+            {
+              "key": "Server",
+              "value": "ArvanCloud"
+            },
+            {
+              "key": "Server-Timing",
+              "value": "total;dur=82"
+            },
+            {
+              "key": "X-Cache",
+              "value": "BYPASS"
+            },
+            {
+              "key": "X-Request-ID",
+              "value": "2f72bfcd72fd7b4b0ae0c87810beb606"
+            },
+            {
+              "key": "X-SID",
+              "value": "2022"
+            },
+            {
+              "key": "Content-Encoding",
+              "value": "br"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"status_code\": 200,\n    \"message\": \"Request fulfilled, document follows\",\n    \"is_success\": true,\n    \"error_details\": null,\n    \"response\": {\n        \"personal_info\": {\n            \"id\": 3167,\n            \"phone_number\": \"09000000003\",\n            \"first_name\": \"محمد\",\n            \"last_name\": \"محمدی\"\n        },\n        \"agency_info\": {\n            \"id\": 3659,\n            \"insurance\": {\n                \"id\": 10,\n                \"name\": \"دی\",\n                \"code\": \"DEY\"\n            },\n            \"agent_code\": 324,\n            \"role\": \"manager\"\n        },\n        \"registration_status\": \"waiting_for_confirmation\",\n       \n    }\n}"
+        }
+      ]
+    }
+  ]
+}
