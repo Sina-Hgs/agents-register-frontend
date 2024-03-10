@@ -1,14 +1,20 @@
 import { useRef, useState } from "react";
 import { create_otp } from "../api/axios";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { phoneGetter } from "../store/agentReducer";
 
 const PhoneLogin = () => {
   const phoneRef = useRef("");
   const [errorText, setErrorText] = useState("No error");
   const [showError, setShowError] = useState("invisible");
   const Navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleClick = async () => {
+    // giving the phone number to the store
+    dispatch(phoneGetter(phoneRef.current));
+    // making the POST request to the server with the phone number
     try {
       const res = await create_otp(phoneRef.current);
       console.log("hey there", res);
@@ -43,7 +49,7 @@ const PhoneLogin = () => {
         />
         <div
           className={`
-        mb-14 w-[80%] px-4 text-red-600  text-sm ml-auto text-right mx-7 ${showError} 
+        mb-12 w-[80%] px-4 text-red-600  text-sm ml-auto text-right mx-7 ${showError} 
         `}
         >
           {errorText}
