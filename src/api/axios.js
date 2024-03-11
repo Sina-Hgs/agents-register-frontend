@@ -88,3 +88,44 @@ export const insurance_list = async (name, province) => {
   // console.log(JSON.stringify(response.data));
   return response.data;
 };
+
+export const register_agent = async (
+  address,
+  agency_type,
+  agent_code,
+  city_code,
+  county,
+  first_name,
+  insurance_branch,
+  last_name,
+  name,
+  phone,
+  phone_number,
+  province
+) => {
+  let data = JSON.stringify({
+    address,
+    agency_type,
+    agent_code,
+    city_code,
+    county,
+    first_name,
+    insurance_branch,
+    last_name,
+    name,
+    phone,
+    phone_number,
+    province,
+  });
+  const response = await axios.request({
+    method: "post",
+    maxBodyLength: Infinity,
+    url: "https://stage-api.sanaap.co/api/v2/app/DEY/agent/verification/signup/",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: data,
+  });
+  console.log(JSON.stringify(response.data));
+  return response.data;
+};

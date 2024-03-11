@@ -2,17 +2,24 @@ import { useState, useRef, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import {
   addressGetter,
+  agencyNameGetter,
+  agencyTypeGetter,
   branchGetter,
+  cityCodeGetter,
   codeGetter,
   locationGetter,
+  nameGetter,
+  telephoneGetter,
 } from "../store/agentReducer";
 import {
   validate_agent,
   provinces_wop,
   counties_wop,
   insurance_list,
+  register_agent,
 } from "../api/axios";
 import Container from "../components/Container";
+import SubmitBtn from "../components/SubmitBtn";
 
 const AgencyInfo = () => {
   const dispatch = useDispatch();
@@ -34,6 +41,9 @@ const AgencyInfo = () => {
   const insuranceRef = useRef(null);
   const [branch, setBranch] = useState(null);
   const [branchDropDown, setBranchDropDown] = useState([]);
+
+  // Legal branch
+  const [showName, setShowName] = useState("hidden");
 
   // برای کد نمایندگی
   const handleCodeChange = async (e) => {
@@ -124,7 +134,6 @@ const AgencyInfo = () => {
 
   // لیست شعب
   // !********************************
-
   const handleInsuranceChange = async (e) => {
     insuranceRef.current = e.target.value;
     // giving the branch to the store
@@ -157,7 +166,7 @@ const AgencyInfo = () => {
   return (
     <>
       <Container>
-        <form className="bg-white">
+        <form className="bg-white" action="">
           <label
             htmlFor="phone"
             className="w-[100%] flex flex-col justify-between items-center transition-all "
@@ -244,6 +253,72 @@ const AgencyInfo = () => {
               {...branchDropDown}
             </select>
           </div>
+
+          {/* تلفن ثابت */}
+          <div className="flex flex-row justify-evenly">
+            <input
+              name="telephone"
+              type="text"
+              placeholder="تلفن ثابت"
+              required
+              onChange={(e) => dispatch(telephoneGetter(e.target.value))}
+              className="border-2 rounded-2xl border-gray-300 py-3 px-4 w-[50%] mt-5  text-right"
+            />
+            <input
+              name="telephone"
+              type="text"
+              placeholder="کد تلفن"
+              required
+              onChange={(e) => dispatch(cityCodeGetter(e.target.value))}
+              className="border-2 rounded-2xl border-gray-300 py-3 px-4 w-[25%] mt-5  text-right"
+            />
+          </div>
+
+          {/* نوع نمایندگی */}
+
+          <div className="flex flex-row justify-evenly items-baseline">
+            <p className="text-gray-600 mt-8 mb-5">نوع نمایندگی</p>
+            <span className="flex flex-row items-center">
+              <input
+                required
+                type="radio"
+                id="real"
+                className="mx-2"
+                name="agency-type"
+                value={"real"}
+                onClick={(e) => {
+                  dispatch(agencyTypeGetter(e.target.value));
+                  setShowName("hidden");
+                }}
+              />
+              <label htmlFor="real">حقیقی</label>
+            </span>
+
+            <span className="flex flex-row items-center">
+              <input
+                required
+                type="radio"
+                id="legal"
+                className="mx-2"
+                name="agency-type"
+                value={"legal"}
+                onClick={(e) => {
+                  dispatch(agencyTypeGetter(e.target.value));
+                  setShowName("visible");
+                }}
+              />
+              <label htmlFor="legal">حقوقی</label>
+            </span>
+          </div>
+          <input
+            name="agency name"
+            type="text"
+            placeholder="نام نمایندگی"
+            required
+            onChange={(e) => dispatch(agencyNameGetter(e.target.value))}
+            className={`border-2 rounded-2xl border-gray-300 py-3 px-4 w-[80%] mb-5 text-right ${showName}`}
+          />
+          <SubmitBtn />
         </form>
       </Container>
     </>

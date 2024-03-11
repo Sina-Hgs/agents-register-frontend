@@ -9,12 +9,17 @@ const initialState = {
   county: "شهر",
   address: "آدرس",
   insurance_branch: "آیدی شعبه بیمه",
+  phone: "تلفن ثابت",
+  city_code: "کد شهر",
+  agency_type: "نوع نمایندگی",
+  name: "نام نمایندگی",
 };
 
 const agentSlice = createSlice({
   name: "agent",
   initialState,
   reducers: {
+    
     phoneGetter: (state, action) => {
       state.phone_number = action.payload;
     },
@@ -36,7 +41,22 @@ const agentSlice = createSlice({
       state.insurance_branch = action.payload;
       console.log(state.insurance_branch);
     },
+    telephoneGetter: (state, action) => {
+      state.phone = action.payload;
+    },
+    cityCodeGetter: (state, action) => {
+      state.city_code = action.payload;
+    },
+    agencyTypeGetter: (state, action) => {
+      state.agency_type = action.payload;
+    },
+    agencyNameGetter: (state, action) => {
+      state.name = action.payload;
+
+    },
+  
   },
+  
 });
 
 export const {
@@ -46,6 +66,10 @@ export const {
   locationGetter,
   addressGetter,
   branchGetter,
+  telephoneGetter,
+  cityCodeGetter,
+  agencyTypeGetter,
+  agencyNameGetter,
 } = agentSlice.actions;
 
 export default agentSlice.reducer;

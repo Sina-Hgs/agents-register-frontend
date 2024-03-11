@@ -55,7 +55,7 @@ const AgentInfo = () => {
                 dispatch(
                   nameGetter([firstNameRef.current, lastNameRef.current])
                 );
-                console.log([firstNameRef.current, lastNameRef.current]);
+                // console.log([firstNameRef.current, lastNameRef.current]);
                 Navigate("/agency");
               } else {
                 setShowError("visible");
