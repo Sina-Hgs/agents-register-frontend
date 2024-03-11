@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
+import Countdown from "react-countdown";
+import { create_otp } from "../api/axios";
+
 const CodeValidation = () => {
   const phoneNumber = useSelector((state) => state.agent.phone_number);
   const [inputes, setInputes] = useState([]);
@@ -23,7 +26,7 @@ const CodeValidation = () => {
             pattern="[0-9]"
             required
             key={i}
-            className="border-2 rounded-lg border-gray-300 py-2 px-2 w-12 h-12 mb-5 text-center appearance-none"
+            className="border-2 rounded-lg border-gray-300 py-2 px-2 w-12 h-12  text-center appearance-none"
           />,
         ]);
       }
@@ -46,10 +49,43 @@ const CodeValidation = () => {
             &#128393;
           </Link>
         </div>
-        <div className="w-[80%] flex flex-row-reverse justify-evenly">
+        <div className="w-[80%] flex flex-row-reverse justify-evenly mb-10">
           {...inputes}
         </div>
       </label>
+
+      {/* Countdown */}
+      <Countdown
+        autoStart={true}
+        date={Date.now() + 120 * 1000}
+        renderer={({ minutes, seconds, completed }) => {
+          if (completed) {
+            return (
+              <div className="text-gray-400 flex flex-row justify-center items-baseline mb-5 ">
+                <button
+                  type="button"
+                  onClick={() => {
+                    create_otp(phoneNumber);
+                  }}
+                  className="px-2 hover:underline hover: hover:text-gray-500"
+                >
+                  ارسال مجدد کد
+                </button>
+                <span>0:00</span>
+              </div>
+            );
+          } else {
+            return (
+              <div className="text-gray-400 flex flex-row justify-center items-baseline mb-5 ">
+                <div className="px-2 ">ارسال مجدد کد</div>
+                <span>
+                  {minutes}:{seconds}
+                </span>
+              </div>
+            );
+          }
+        }}
+      />
 
       <button
         type="button"

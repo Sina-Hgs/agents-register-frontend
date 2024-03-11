@@ -17,7 +17,7 @@ const PhoneLogin = () => {
     // making the POST request to the server with the phone number
     try {
       const res = await create_otp(phoneRef.current);
-      console.log("hey there", res);
+      console.log("phone_number📞 POST successful", res);
       Navigate("./validation");
     } catch (error) {
       console.log(error.response.data.error_details.fa_details);

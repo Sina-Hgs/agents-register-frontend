@@ -13,6 +13,6 @@ export const create_otp = async (phoneNumber) => {
     },
     data: data,
   });
-
+  console.log(JSON.stringify(response.data));
   return JSON.stringify(response.data);
 };
