@@ -76,3 +76,15 @@ export const counties_wop = async (province) => {
   // console.log(JSON.stringify(response.data));
   return response.data;
 };
+
+export const insurance_list = async (name, province) => {
+  // console.log(name, province);
+  const response = await axios.request({
+    method: "get",
+    maxBodyLength: Infinity,
+    url: `https://stage-api.sanaap.co/api/v2/app/selection_item/insurance_branch/wop_list/?name=${name}&insurance=DEY&province=${province}`,
+    headers: {},
+  });
+  // console.log(JSON.stringify(response.data));
+  return response.data;
+};
