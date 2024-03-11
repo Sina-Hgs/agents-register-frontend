@@ -3,6 +3,8 @@ import Login from "./routes/Login";
 import Validation from "./routes/Validation";
 import { Provider } from "react-redux";
 import store from "./store/store";
+import AgentInfo from "./routes/AgentInfo";
+import AgencyInfo from "./routes/AgencyInfo";
 import "./App.css";
 
 function App() {
@@ -22,7 +24,9 @@ function App() {
           {/* ROUTES */}
           <Routes>
             <Route path="/" element={<Login />}></Route>
-            <Route path="/validation" element={<Validation />}></Route>
+            <Route path="validation" element={<Validation />}></Route>
+            <Route path="agent_info" element={<AgentInfo />}></Route>
+            <Route path="agency" element={<AgencyInfo />}></Route>
           </Routes>
         </div>
       </Provider>

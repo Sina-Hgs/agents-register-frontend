@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import Countdown from "react-countdown";
 import { create_otp, validate_otp } from "../api/axios";
@@ -10,16 +10,22 @@ const CodeValidation = () => {
   const [errorText, setErrorText] = useState("No error");
   const [showError, setShowError] = useState("invisible");
   const [inputes, setInputes] = useState([]);
+  const [code, setCode] = useState([]);
+  const [countdown, setCountdown] = useState("");
+
+  const Navigate = useNavigate();
 
   const handleClick = async () => {
     // making the POST request to the server with the phone number & code
     try {
-      const res = await validate_otp(phoneNumber, 55555);
+      const res = await validate_otp(phoneNumber, code.join(""));
       console.log("code🔢 POST successful", res);
+      Navigate("/agent_info");
     } catch (error) {
       console.log(error.response.data.error_details.fa_details);
       setErrorText(error.response.data.error_details.fa_details);
       setShowError("visible");
+      setCode([]);
     }
   };
 
@@ -40,6 +46,9 @@ const CodeValidation = () => {
             pattern="[0-9]"
             required
             key={i}
+            onChange={(e) => {
+              setCode((prev) => [...prev, e.target.value]);
+            }}
             className="border-2 rounded-lg border-gray-300 py-2 px-2 w-12 h-12  text-center appearance-none"
           />,
         ]);
@@ -47,35 +56,10 @@ const CodeValidation = () => {
     }
   }, []);
 
-  return (
-    <form className="bg-white">
-      <label
-        htmlFor="code"
-        className="w-[100%] flex flex-col justify-between items-center transition-all"
-      >
-        <h3 className="text-gray-500 mb-1 text-xl">کد تایید را وارد نمایید.</h3>
-        <div className="py-2 flex flex-row-reverse justify-around items-baseline mb-1">
-          <p className="font-base mx-2">{phoneNumber}</p>
-          <Link
-            to={"/"}
-            className="text-white text-xs bg-teal-600 px-1.5 py-1 rounded-full hover:bg-teal-700"
-          >
-            &#128393;
-          </Link>
-        </div>
-        <div className="w-[80%] flex flex-row-reverse justify-evenly mb-5">
-          {...inputes}
-        </div>
-        <div
-          className={`
-        mb-6 w-[80%] px-4 text-red-600  text-sm ml-auto text-right mx-7 ${showError} 
-        `}
-        >
-          {errorText}
-        </div>
-      </label>
+  // COUNTDOWN
 
-      {/* Countdown */}
+  useEffect(() => {
+    setCountdown(
       <Countdown
         autoStart={true}
         date={Date.now() + 120 * 1000}
@@ -107,7 +91,38 @@ const CodeValidation = () => {
           }
         }}
       />
+    );
+  }, []);
 
+  return (
+    <form className="bg-white">
+      <label
+        htmlFor="code"
+        className="w-[100%] flex flex-col justify-between items-center transition-all"
+      >
+        <h3 className="text-gray-500 mb-1 text-xl">کد تایید را وارد نمایید.</h3>
+        <div className="py-2 flex flex-row-reverse justify-around items-baseline mb-1">
+          <p className="font-base mx-2">{phoneNumber}</p>
+          <Link
+            to={"/"}
+            className="text-white text-xs bg-teal-600 px-1.5 py-1 rounded-full hover:bg-teal-700"
+          >
+            &#128393;
+          </Link>
+        </div>
+        <div className="w-[80%] flex flex-row-reverse justify-evenly mb-5">
+          {...inputes}
+        </div>
+        <div
+          className={`
+        mb-6 w-[80%] px-4 text-red-600  text-sm ml-auto text-right mx-7 ${showError} 
+        `}
+        >
+          {errorText}
+        </div>
+      </label>
+
+      {countdown}
       <button
         type="button"
         onClick={() => handleClick()}
