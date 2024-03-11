@@ -40,7 +40,6 @@ export const validate_agent = async (code) => {
   let data = JSON.stringify({
     agent_code: code,
   });
-  console.log(code);
 
   const response = await axios.request({
     method: "post",
@@ -51,6 +50,17 @@ export const validate_agent = async (code) => {
     },
     data: data,
   });
-  console.log(JSON.stringify(response.data));
+
   return JSON.stringify(response.data);
+};
+
+export const provinces_wop = async () => {
+  const response = await axios.request({
+    method: "get",
+    maxBodyLength: Infinity,
+    url: "https://stage-api.sanaap.co/base/provinces_wop/",
+    headers: {},
+  });
+  // console.log(JSON.stringify(response.data));
+  return response.data;
 };
