@@ -35,3 +35,22 @@ export const validate_otp = async (phone_number, code) => {
   console.log(JSON.stringify(response.data));
   return JSON.stringify(response.data);
 };
+
+export const validate_agent = async (code) => {
+  let data = JSON.stringify({
+    agent_code: code,
+  });
+  console.log(code);
+
+  const response = await axios.request({
+    method: "post",
+    maxBodyLength: Infinity,
+    url: "https://stage-api.sanaap.co/api/v2/app/DEY/agent/verification/signup/check_agency_code/",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: data,
+  });
+  console.log(JSON.stringify(response.data));
+  return JSON.stringify(response.data);
+};
