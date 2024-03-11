@@ -64,3 +64,15 @@ export const provinces_wop = async () => {
   // console.log(JSON.stringify(response.data));
   return response.data;
 };
+
+export const counties_wop = async (province) => {
+  // console.log(province);
+  const response = await axios.request({
+    method: "get",
+    maxBodyLength: Infinity,
+    url: `https://stage-api.sanaap.co/base/counties_wop/?province=${province}`,
+    headers: {},
+  });
+  // console.log(JSON.stringify(response.data));
+  return response.data;
+};
