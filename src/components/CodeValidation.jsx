@@ -3,11 +3,25 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import Countdown from "react-countdown";
-import { create_otp } from "../api/axios";
+import { create_otp, validate_otp } from "../api/axios";
 
 const CodeValidation = () => {
   const phoneNumber = useSelector((state) => state.agent.phone_number);
+  const [errorText, setErrorText] = useState("No error");
+  const [showError, setShowError] = useState("invisible");
   const [inputes, setInputes] = useState([]);
+
+  const handleClick = async () => {
+    // making the POST request to the server with the phone number & code
+    try {
+      const res = await validate_otp(phoneNumber, 55555);
+      console.log("code🔢 POST successful", res);
+    } catch (error) {
+      console.log(error.response.data.error_details.fa_details);
+      setErrorText(error.response.data.error_details.fa_details);
+      setShowError("visible");
+    }
+  };
 
   // making the inputes
   let i = 1;
@@ -49,8 +63,15 @@ const CodeValidation = () => {
             &#128393;
           </Link>
         </div>
-        <div className="w-[80%] flex flex-row-reverse justify-evenly mb-10">
+        <div className="w-[80%] flex flex-row-reverse justify-evenly mb-5">
           {...inputes}
+        </div>
+        <div
+          className={`
+        mb-6 w-[80%] px-4 text-red-600  text-sm ml-auto text-right mx-7 ${showError} 
+        `}
+        >
+          {errorText}
         </div>
       </label>
 
